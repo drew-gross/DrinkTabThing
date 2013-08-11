@@ -78,7 +78,10 @@ if (Meteor.isClient) {
   };
 
   Template.dashboard.open_tabs = function() {
-    return Tabs.find({barId: Session.get('barId')})
+    return Tabs.find({
+      barId: Session.get('barId'),
+      open: {$not: false}
+    });
   };
 
   Template.bar.events({
@@ -112,7 +115,14 @@ if (Meteor.isClient) {
       PurchasedDrinks.update(this._id, {$set:{ready: true}});
     }
   });
+
+  Template.open_tab.events({
+    'click .close_tab': function() {
+      Tabs.update(this._id, {$set:{open: false}});
+    }
+  });
 }
+
 
 if (Meteor.isServer) {
   Meteor.startup(function () {

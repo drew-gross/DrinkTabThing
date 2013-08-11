@@ -1,5 +1,5 @@
 <template name="dashboard">
-	<h1>Drinks waiting</h1>
+	<h1>Drinks Waiting</h1>
 	{{#each active_drinks}}
 		{{> active_drink}}
 	{{/each}}
@@ -22,5 +22,5 @@
 </template>
 
 <template name="open_tab">
-	<div>ID: {{_id}}</div>
+	<div>ID: {{_id}}<input type="button" value="close tab" class="close_tab"/></div>
 </template>
