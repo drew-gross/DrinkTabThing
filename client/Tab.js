@@ -1,5 +1,4 @@
 Handlebars.registerHelper('tab_open', function() {
-	console.log(this);
 	var tab = Tabs.findOne({_id:Session.get('tabId')});
 	return tab && (tab.open !== false);
 });
@@ -9,7 +8,17 @@ return Drinks.find({});
 };
 
 Template.tab.ordered_drinks = function () {
-	return PurchasedDrinks.find({tab:Session.get('tabId')});
+	return PurchasedDrinks.find({
+		tab:Session.get('tabId'),
+		cancelled: {$not: true}
+	});
+};
+
+Template.tab.cancelled_drinks = function() {
+	return PurchasedDrinks.find({
+		tab:Session.get('tabId'),
+		cancelled: true
+	});
 };
 
 Template.tab.my_tab = function() {
@@ -28,5 +37,11 @@ Template.drink_from_menu.events({
 	    tab: Session.get('tabId'),
 	    bar: tab.barId
 	  });
+	}
+});
+
+Template.drink_from_tab.events({
+	'click .cancel_drink': function(){
+		PurchasedDrinks.update(this._id, {$set: {cancelled: true}});
 	}
 });

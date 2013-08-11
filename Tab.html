@@ -17,6 +17,10 @@
   {{#each ordered_drinks}}
   	{{> drink_from_tab}}
   {{/each}}
+  <h1>Cancelled drinks</h1>
+  {{#each cancelled_drinks}}
+    {{> cancelled_drink}}
+  {{/each}}
 </template>
 
 <template name="drink_from_menu">
@@ -32,6 +36,12 @@
     {{name}}: ${{price}}
     {{#if drink_ready}}
       Ready!
+    {{else}}
+      <input type="button" value="cancel" class="cancel_drink"/>
     {{/if}}
   </div>
+</template>
+
+<template name="cancelled_drink">
+  <div>{{name}}</div>
 </template>

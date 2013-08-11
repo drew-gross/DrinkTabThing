@@ -24,7 +24,10 @@ if (Meteor.isClient) {
   });
 
   Handlebars.registerHelper('tab_total', function() {
-    var drinks = PurchasedDrinks.find({tab:this._id});
+    var drinks = PurchasedDrinks.find({
+      tab:this._id,
+      cancelled: {$not: true}
+    });
     return _.reduce(drinks.fetch(), function(acc, next) {
       return acc + next.price;
     }, 0);

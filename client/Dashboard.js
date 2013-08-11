@@ -3,7 +3,8 @@ Template.dashboard.active_drinks = function() {
   if (bar) {
     return PurchasedDrinks.find({
       bar: Session.get('barId'),
-      ready:{$not: true}
+      ready: {$not: true},
+      cancelled: {$not: true}
     });
   } else {
     return bar;
