@@ -41,12 +41,16 @@ if (Meteor.isClient) {
     return PurchasedDrinks.find({tab:Session.get('tabId')});
   };
 
-  Template.tab.spent = function () {
-    var drinks = PurchasedDrinks.find({tab:Session.get('tabId')});
+  Template.tab.my_tab = function() {
+    return Tabs.findOne({_id:Session.get('tabId')});
+  };
+
+  Handlebars.registerHelper('tab_total', function() {
+    var drinks = PurchasedDrinks.find({tab:this._id});
     return _.reduce(drinks.fetch(), function(acc, next) {
       return acc + next.price;
     }, 0);
-  };
+  });
 
   Template.bar.bar_name = function(){
     var bar = Bars.findOne({_id:Session.get('barId')});

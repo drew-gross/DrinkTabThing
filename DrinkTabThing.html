@@ -12,7 +12,9 @@
   	{{> drink_from_menu}}
   {{/each}}
   <hr>
-  <h1>My Tab (${{spent}})</h1>
+  {{#with my_tab}}
+  	<h1>My Tab (${{tab_total}})</h1>
+  {{/with}}
   {{#each ordered_drinks}}
   	{{> drink_from_tab}}
   {{/each}}
