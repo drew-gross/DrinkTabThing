@@ -23,6 +23,16 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.home.bars = function() {
+    return Bars.find({});
+  };
+
+  Template.home.events({
+    'click .view_bar': function() {
+      Meteor.Router.to('/bar/' + this._id);
+    }
+  });
+
   Template.tab.drinks_menu = function(){
     return Drinks.find({});
   };
@@ -65,6 +75,10 @@ if (Meteor.isClient) {
     } else {
       return bar;
     }
+  };
+
+  Template.dashboard.open_tabs = function() {
+    return Tabs.find({barId: Session.get('barId')})
   };
 
   Template.bar.events({

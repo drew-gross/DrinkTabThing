@@ -36,21 +36,9 @@
 	<input type="button" value="open a tab" class="open_tab"/>
 </template>
 
-<template name="dashboard">
-	<h1>Drinks waiting</h1>
-	{{#each active_drinks}}
-		{{> active_drink}}
+<template name="home">
+	<h1>Choose your bar</h1>
+	{{#each bars}}
+		<div><input type="button" value="{{name}}" class="view_bar"/></div>
 	{{/each}}
-	<h1>Drinks Finished</h1>
-	{{#each finished_drinks}}
-		{{> finished_drink}}
-	{{/each}}
-</template>
-
-<template name="active_drink">
-	<div>{{name}} <input type="button" value="drink is ready" class="drink_ready"/></div>
-</template>
-
-<template name="finished_drink">
-	<div>{{name}}</div>
 </template>
