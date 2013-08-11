@@ -16,7 +16,8 @@ if (Meteor.isClient) {
   };
 
   Template.tab.ordered_drinks = function () {
-    return Tabs.findOne(Session.get('tabId')).ordered_drinks;
+    var tab = Tabs.findOne(Session.get('tabId'));
+    return tab && tab.ordered_drinks;
   };
 
   Template.drink_from_menu.events({
