@@ -13,7 +13,11 @@
 </template>
 
 <template name="drink_from_menu">
-  <div>{{name}}: ${{price}}<input type="button" value="buy one" class="buy_drink"/></div>
+  <div>{{name}}: ${{price}}
+  {{#if tab_open}}
+    <input type="button" value="buy one" class="buy_drink"/>
+  {{/if}}
+  </div>
 </template>
 
 <template name="drink_from_tab">
