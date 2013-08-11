@@ -1,5 +1,6 @@
 Tabs = new Meteor.Collection('tabs');
 Drinks = new Meteor.Collection('drinks');
+PurcahsedDrinks = new Meteor.Collection('purcahsed_drinks');
 
 if (Meteor.isClient) {
   Meteor.Router.add({
@@ -16,13 +17,12 @@ if (Meteor.isClient) {
   };
 
   Template.tab.ordered_drinks = function () {
-    var tab = Tabs.findOne(Session.get('tabId'));
-    return tab && tab.ordered_drinks;
+    return PurcahsedDrinks.find({tab:Session.get('tabId')});
   };
 
   Template.drink_from_menu.events({
     'click .buy_drink': function () {
-      Tabs.update({_id:Session.get('tabId')}, {$push: {ordered_drinks: this}});
+      PurcahsedDrinks.insert({name:this.name, price:this.price, tab:Session.get('tabId')});
     }
   });
 }
@@ -34,11 +34,5 @@ if (Meteor.isServer) {
         return Tabs.findOne(id).owner;
       }
     });
-
-    if (Drinks.find().count() === 0) {
-      Drinks.insert({name: "Screwdriver", price: "5.00"});
-      Drinks.insert({name: "Rum and Coke", price: "5.50"});
-      Drinks.insert({name: "Kilkenny's", price: "8.00"});
-    }
   });
 }
