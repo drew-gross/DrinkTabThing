@@ -45,10 +45,6 @@ if (Meteor.isClient) {
     }
   };
 
-  Template.dashboard.dash = function() {
-    return "adsgasdg";
-  };
-
   Template.bar.events({
     'click .open_tab': function () {
       var new_tab_id = Tabs.insert({
@@ -68,6 +64,16 @@ if (Meteor.isClient) {
         tab: Session.get('tabId'),
         bar: tab.barId
       });
+    }
+  });
+
+  Template.drink_from_tab.drink_ready = function() {
+    return this.ready;
+  };
+
+  Template.active_drink.events({
+    'click .drink_ready': function () {
+      PurchasedDrinks.update(this._id, {$set:{ready: true}});
     }
   });
 }

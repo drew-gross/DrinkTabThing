@@ -23,7 +23,12 @@
 </template>
 
 <template name="drink_from_tab">
-	<div>{{name}}: ${{price}}</div>
+	<div>
+		{{name}}: ${{price}}
+		{{#if drink_ready}}
+			Ready!
+		{{/if}}
+	</div>
 </template>
 
 <template name="bar">
