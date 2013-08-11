@@ -1,8 +1,10 @@
-Template.dashboard.active_drinks = function() { 
+Template.open_tab.active_drinks_on_tab = function() { 
+  console.log(this);
   var bar = Bars.findOne({_id:Session.get('barId')});
   if (bar) {
     return PurchasedDrinks.find({
       bar: Session.get('barId'),
+      tab: this._id,
       ready: {$not: true},
       cancelled: {$not: true}
     });
