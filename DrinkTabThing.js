@@ -23,6 +23,13 @@ if (Meteor.isClient) {
     }
   });
 
+  Handlebars.registerHelper('tab_total', function() {
+    var drinks = PurchasedDrinks.find({tab:this._id});
+    return _.reduce(drinks.fetch(), function(acc, next) {
+      return acc + next.price;
+    }, 0);
+  });
+
   Template.home.bars = function() {
     return Bars.find({});
   };
@@ -31,25 +38,6 @@ if (Meteor.isClient) {
     'click .view_bar': function() {
       Meteor.Router.to('/bar/' + this._id);
     }
-  });
-
-  Template.tab.drinks_menu = function(){
-    return Drinks.find({});
-  };
-
-  Template.tab.ordered_drinks = function () {
-    return PurchasedDrinks.find({tab:Session.get('tabId')});
-  };
-
-  Template.tab.my_tab = function() {
-    return Tabs.findOne({_id:Session.get('tabId')});
-  };
-
-  Handlebars.registerHelper('tab_total', function() {
-    var drinks = PurchasedDrinks.find({tab:this._id});
-    return _.reduce(drinks.fetch(), function(acc, next) {
-      return acc + next.price;
-    }, 0);
   });
 
   Template.bar.bar_name = function(){
@@ -66,22 +54,6 @@ if (Meteor.isClient) {
       Meteor.Router.to('/tabs/' + new_tab_id);
     }
   });
-
-  Template.drink_from_menu.events({
-    'click .buy_drink': function () {
-      var tab = Tabs.findOne({_id:Session.get('tabId')});
-      PurchasedDrinks.insert({
-        name: this.name, 
-        price: this.price, 
-        tab: Session.get('tabId'),
-        bar: tab.barId
-      });
-    }
-  });
-
-  Template.drink_from_tab.drink_ready = function() {
-    return this.ready;
-  };
 }
 
 if (Meteor.isServer) {

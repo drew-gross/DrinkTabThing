@@ -1,0 +1,26 @@
+<template name="tab">
+  <h1>Menu</h1>
+  {{#each drinks_menu}}
+  	{{> drink_from_menu}}
+  {{/each}}
+  <hr>
+  {{#with my_tab}}
+  	<h1>My Tab (${{tab_total}})</h1>
+  {{/with}}
+  {{#each ordered_drinks}}
+  	{{> drink_from_tab}}
+  {{/each}}
+</template>
+
+<template name="drink_from_menu">
+  <div>{{name}}: ${{price}}<input type="button" value="buy one" class="buy_drink"/></div>
+</template>
+
+<template name="drink_from_tab">
+  <div>
+    {{name}}: ${{price}}
+    {{#if drink_ready}}
+      Ready!
+    {{/if}}
+  </div>
+</template>
