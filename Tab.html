@@ -13,7 +13,11 @@
         (tab closed)
       {{/if}}
     </h1>
-    <div>{{waiting_count}} drinks waiting</div>
+    {{#if all_drinks_ready}}
+      <div>All your drinks are ready!</div>
+    {{else}}
+      <div>{{waiting_count}} drinks waiting</div>
+    {{/if}}
   {{/with}}
   {{#each ordered_drinks}}
   	{{> drink_from_tab}}

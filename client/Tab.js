@@ -26,6 +26,14 @@ Template.tab.waiting_count = function() {
 	}).count();
 };
 
+Template.tab.all_drinks_ready = function() {
+	return PurchasedDrinks.find({
+		tab:this._id,
+		ready:{$not: true},
+		cancelled:{$not: true}
+	}).count() == 0;
+};
+
 Template.tab.cancelled_drinks = function() {
 	return PurchasedDrinks.find({
 		tab:Session.get('tabId'),
