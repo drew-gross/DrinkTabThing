@@ -1,7 +1,7 @@
 <template name="tab">
   <h1>Menu</h1>
-  {{#each drinks_menu}}
-  	{{> drink_from_menu}}
+  {{#each drink_categories}}
+    {{> drink_category}}
   {{/each}}
   <hr>
   {{#with my_tab}}
@@ -20,6 +20,13 @@
   <h1>Cancelled drinks</h1>
   {{#each cancelled_drinks}}
     {{> cancelled_drink}}
+  {{/each}}
+</template>
+
+<template name="drink_category">
+  <h4>{{name}}</h4>
+  {{#each drinks_menu}}
+    {{> drink_from_menu}}
   {{/each}}
 </template>
 

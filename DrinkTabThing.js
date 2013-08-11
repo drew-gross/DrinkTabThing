@@ -1,5 +1,6 @@
 Tabs = new Meteor.Collection('tabs');
 Drinks = new Meteor.Collection('drinks');
+DrinkCategories = new Meteor.Collection('drink_categories');
 PurchasedDrinks = new Meteor.Collection('purcahsed_drinks');
 Bars = new Meteor.Collection('bars');
 
@@ -62,9 +63,15 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     if (Drinks.find().count() === 0) {
-      Drinks.insert({name: "Screwdriver", price: 5.00});
-      Drinks.insert({name: "Rum and Coke", price: 5.50});
-      Drinks.insert({name: "Kilkenny's", price: 8.00});
+      var mixed = DrinkCategories.insert({name: "Mixed Drinks"});
+      var shots = DrinkCategories.insert({name: "Shots"});
+      var beers = DrinkCategories.insert({name: "Beer"});
+      Drinks.insert({name: "Screwdriver", price: 5.00, category:mixed});
+      Drinks.insert({name: "Rum and Coke", price: 5.50, category:mixed});
+      Drinks.insert({name: "Swedish Berry", price: 3.00, category:shots});
+      Drinks.insert({name: "Tequila", price: 3.75, category:shots});
+      Drinks.insert({name: "Kilkenny's", price: 8.00, category:beers});
+      Drinks.insert({name: "Anchorsteam", price: 8.00, category:beers});
     }
   });
 }

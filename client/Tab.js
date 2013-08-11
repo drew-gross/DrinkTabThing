@@ -3,8 +3,12 @@ Handlebars.registerHelper('tab_open', function() {
 	return tab && (tab.open !== false);
 });
 
-Template.tab.drinks_menu = function(){
-return Drinks.find({});
+Template.drink_category.drinks_menu = function(){
+	return Drinks.find({category: this._id});
+};
+
+Template.tab.drink_categories = function() {
+	return DrinkCategories.find({});
 };
 
 Template.tab.ordered_drinks = function () {
