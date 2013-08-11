@@ -9,10 +9,6 @@
 	{{/each}}
 </template>
 
-<template name="active_drink">
-	<li>{{name}} <input type="button" value="drink is ready" class="drink_ready"/></li>
-</template>
-
 <template name="finished_drink">
 	<div>{{name}}</div>
 </template>
@@ -21,7 +17,7 @@
 	<div>ID: {{_id}} (${{tab_total}})<input type="button" value="close tab" class="close_tab"/></div>
 	<ul>
 		{{#each active_drinks_on_tab}}
-			{{> active_drink}}
+			<li>{{name}} <input type="button" value="drink is ready" class="drink_ready"/></li>
 		{{/each}}
 	</ul>
 </template>

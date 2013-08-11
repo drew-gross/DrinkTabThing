@@ -32,14 +32,11 @@ Template.dashboard.open_tabs = function() {
   });
 };
 
-Template.active_drink.events({
-  'click .drink_ready': function () {
-    PurchasedDrinks.update(this._id, {$set:{ready: true}});
-  }
-});
-
 Template.open_tab.events({
   'click .close_tab': function() {
     Tabs.update(this._id, {$set:{open: false}});
+  },
+  'click .drink_ready': function () {
+    PurchasedDrinks.update(this._id, {$set:{ready: true}});
   }
 });
