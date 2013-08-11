@@ -31,6 +31,13 @@ if (Meteor.isClient) {
     return PurchasedDrinks.find({tab:Session.get('tabId')});
   };
 
+  Template.tab.spent = function () {
+    var drinks = PurchasedDrinks.find({tab:Session.get('tabId')});
+    return _.reduce(drinks.fetch(), function(acc, next) {
+      return acc + next.price;
+    }, 0);
+  };
+
   Template.bar.bar_name = function(){
     var bar = Bars.findOne({_id:Session.get('barId')});
     return bar && bar.name;
@@ -96,9 +103,9 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     if (Drinks.find().count() === 0) {
-      Drinks.insert({name: "Screwdriver", price: "5.00"});
-      Drinks.insert({name: "Rum and Coke", price: "5.50"});
-      Drinks.insert({name: "Kilkenny's", price: "8.00"});
+      Drinks.insert({name: "Screwdriver", price: 5.00});
+      Drinks.insert({name: "Rum and Coke", price: 5.50});
+      Drinks.insert({name: "Kilkenny's", price: 8.00});
     }
   });
 }
