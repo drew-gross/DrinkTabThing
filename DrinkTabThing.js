@@ -1,6 +1,6 @@
 Tabs = new Meteor.Collection('tabs');
 Drinks = new Meteor.Collection('drinks');
-PurcahsedDrinks = new Meteor.Collection('purcahsed_drinks');
+PurchasedDrinks = new Meteor.Collection('purcahsed_drinks');
 Bars = new Meteor.Collection('bars');
 
 if (Meteor.isClient) {
@@ -10,6 +10,11 @@ if (Meteor.isClient) {
     '/bar/:id': function (id) {
       Session.set('barId', id);
       return 'bar';
+    },
+
+    '/dashboard/:id': function (id) {
+      Session.set('barId', id);
+      return 'dashboard';
     },
 
     '/tabs/:id':  function (id) {
@@ -23,7 +28,7 @@ if (Meteor.isClient) {
   };
 
   Template.tab.ordered_drinks = function () {
-    return PurcahsedDrinks.find({tab:Session.get('tabId')});
+    return PurchasedDrinks.find({tab:Session.get('tabId')});
   };
 
   Template.bar.bar_name = function(){
@@ -31,21 +36,48 @@ if (Meteor.isClient) {
     return bar && bar.name;
   };
 
+  Template.dashboard.active_drinks = function() { 
+    var bar = Bars.findOne({_id:Session.get('barId')});
+    if (bar) {
+      return PurchasedDrinks.find({bar: Session.get('barId')});
+    } else {
+      return bar;
+    }
+  };
+
+  Template.dashboard.dash = function() {
+    return "adsgasdg";
+  };
+
   Template.bar.events({
     'click .open_tab': function () {
-      var new_tab_id = Tabs.insert({owner:"Drew Gross"});
+      var new_tab_id = Tabs.insert({
+        owner: "Drew Gross", 
+        barId: Session.get('barId')
+      });
       Meteor.Router.to('/tabs/' + new_tab_id);
     }
   });
 
   Template.drink_from_menu.events({
     'click .buy_drink': function () {
-      PurcahsedDrinks.insert({name:this.name, price:this.price, tab:Session.get('tabId')});
+      var tab = Tabs.findOne({_id:Session.get('tabId')});
+      PurchasedDrinks.insert({
+        name: this.name, 
+        price: this.price, 
+        tab: Session.get('tabId'),
+        bar: tab.barId
+      });
     }
   });
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    if (Drinks.find().count() === 0) {
+      Drinks.insert({name: "Screwdriver", price: "5.00"});
+      Drinks.insert({name: "Rum and Coke", price: "5.50"});
+      Drinks.insert({name: "Kilkenny's", price: "8.00"});
+    }
   });
 }

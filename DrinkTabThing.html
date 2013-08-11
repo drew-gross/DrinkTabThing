@@ -30,3 +30,14 @@
 	<div>Bar name: {{bar_name}}</div>
 	<input type="button" value="open a tab" class="open_tab"/>
 </template>
+
+<template name="dashboard">
+	<h1>Drinks waiting</h1>
+	{{#each active_drinks}}
+		{{> active_drink}}
+	{{/each}}
+</template>
+
+<template name="active_drink">
+	<div>{{name}} <input type="button" value="drink is ready" class="drink_ready"/></div>
+</template>
