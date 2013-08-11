@@ -39,7 +39,22 @@ if (Meteor.isClient) {
   Template.dashboard.active_drinks = function() { 
     var bar = Bars.findOne({_id:Session.get('barId')});
     if (bar) {
-      return PurchasedDrinks.find({bar: Session.get('barId')});
+      return PurchasedDrinks.find({
+        bar: Session.get('barId'),
+        ready:{$not: true}
+      });
+    } else {
+      return bar;
+    }
+  };
+
+  Template.dashboard.finished_drinks = function() {
+    var bar = Bars.findOne({_id:Session.get('barId')});
+    if (bar) {
+      return PurchasedDrinks.find({
+        bar: Session.get('barId'),
+        ready: true
+      });
     } else {
       return bar;
     }
