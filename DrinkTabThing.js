@@ -62,6 +62,12 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    if (Bars.find().count() === 0){
+      var barsList = ["Yield Wine Bar", "Stray Bar", "Ruby Skye", "QBar"];
+      for (var i in barsList){
+        Bars.insert({ name: barsList[i] });
+      }
+    }
     if (Drinks.find().count() === 0) {
       var mixed = DrinkCategories.insert({name: "Mixed Drinks"});
       var shots = DrinkCategories.insert({name: "Shots"});
