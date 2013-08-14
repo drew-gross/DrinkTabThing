@@ -9,9 +9,9 @@ if (Meteor.isClient) {
 
     '/': 'index',
 
-    '/drinkzy': 'home',
+    '/drinkzy': 'drinkzy',
 
-    '/app': 'home',
+    '/bar': 'home',
 
     '/bar/:id': function (id) {
       Session.set('barId', id);
