@@ -1,0 +1,660 @@
+html {
+	margin: 0;
+}
+
+body {
+	position: relative;
+	background: url(../img/diagonal-stripe.png) repeat #f2f2f2;
+	font-family: 'AvenirRoman';
+	font-size: 13px;
+	color: #323232;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1170px;
+}
+
+@media (max-width: 979px) {
+	body { padding-top: 0 !important; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'AvenirRoman';
+	font-weight: 300;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+p {
+	margin-bottom: 18px;
+}
+
+input[type="text"],
+input[type="search"], 
+input[type="password"], 
+input[type="submit"],
+textarea {
+	font-family: 'AvenirRoman';
+}
+
+hr {
+	margin: 0;
+	border-top-color: #dadada;	
+}
+
+figure {
+	margin: 0;
+}
+
+.not-visible {
+	visibility: hidden;
+}
+
+.color-blue {
+	color: #5e91c1;
+}
+
+
+/* Fonts
+-------------------------------------------------- */
+@font-face {
+    font-family: 'OstrichSansRoundedMedium';
+    src: url('../font/ostrich-rounded-webfont.eot');
+    src: url('../font/ostrich-rounded-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/ostrich-rounded-webfont.woff') format('woff'),
+         url('../font/ostrich-rounded-webfont.ttf') format('truetype'),
+         url('../font/ostrich-rounded-webfont.svg#OstrichSansRoundedMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AvenirMedium';
+    src: url('font/AvenirMedium.eot');
+    src: url('font/AvenirMedium.eot?#iefix') format('embedded-opentype'),
+         url('font/AvenirMedium.woff') format('woff'),
+         url('font/AvenirMedium.ttf') format('truetype'),
+         url('font/AvenirMedium.svg#AvenirMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'AvenirRoman';
+    src: url('font/AvenirRoman.eot');
+    src: url('font/AvenirRoman.eot?#iefix') format('embedded-opentype'),
+         url('font/AvenirRoman.woff') format('woff'),
+         url('font/AvenirRoman.ttf') format('truetype'),
+         url('font/AvenirRoman.svg#AvenirRoman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {font-family: "SocialicoRegular";
+  src: url('../font/socialico-webfont.eot');
+  src: url('../font/socialico-webfont.eot?#iefix') format('eot'),
+	url('../font/socialico-webfont.woff') format('woff'),
+	url('../font/socialico-webfont.ttf') format('truetype'),
+    url('../font/socialico-webfont.svg#SocialicoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Plugins
+-------------------------------------------------- */
+
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+ 
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides and navigation wrapper element */
+.slides:after, .flex-direction-nav:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+
+
+/* General Bootstrap Overrides
+-------------------------------------------------- */
+
+/* button */
+.btn {
+	background-image: none;
+	border: none;
+	border-radius: 8px;
+	padding: 14px;
+	font-weight: 300;
+	text-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+	background-color: #0376DA;	
+}
+
+.btn.loading {
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+		color-stop(.25, rgba(0, 0, 0, .10)), 
+		color-stop(.25, transparent),
+		color-stop(.5, transparent), 
+		color-stop(.5, rgba(0, 0, 0, .10)),
+		color-stop(.75, rgba(0, 0, 0, .10)), 
+		color-stop(.75, transparent), 
+		to(transparent));
+
+	background-image: -moz-linear-gradient(-45deg, 
+			rgba(0, 0, 0, .10) 25%, 
+			transparent 25%,
+			transparent 50%, rgba(0, 0, 0, .10) 50%, 
+			rgba(0, 0, 0, .10) 75%, 
+			transparent 75%, transparent
+		);
+    
+	background-position: 0 0;
+
+	background-size: 60px 60px;
+	-moz-background-size: 60px 60px;
+	-webkit-background-size: 60px 60px;
+    
+	-webkit-animation: animate-stripes 2s linear infinite;
+}
+
+/* full width section container */
+.full-width {
+	width: 100%;
+	background: #2a2a2a;
+}
+
+/* section */
+.section .heading {
+	font-size: 4em;
+	font-weight: 700;
+	color: #006dcc;
+	text-shadow: 1px 1px 0px #fff;
+	line-height: 1;
+	margin-top: 0;
+	font-family: 	
+}
+
+.section .description {
+	font-size: 1.8em;	
+	font-weight: 300;
+	line-height: 1.6;
+}
+
+/* navbar */
+.navbar .btn-navbar {
+	background-color: #FFF;
+	background-image: none;
+	margin-top: 2em;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active {
+	background-color: #fff;
+}
+
+.navbar .btn-navbar .icon-bar {
+	background-color: #5e91c1;
+	-webkit-box-shadow: none;		
+	-moz-box-shadow: none;
+	box-shadow: none;
+} 
+
+
+
+/* Header
+-------------------------------------------------- */
+
+.header {
+	margin-bottom: 85px;
+	background-image: url(../img/hero-unit-bg.png);
+	background-position: top center;
+	
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/* top nav */
+#top-nav {
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	z-index: 99;
+}
+
+#top-nav .navbar-inner {
+	border: none;
+	background: rgba(77, 77, 77, 0.3);
+
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+
+	-webkit-box-shadow: none;		
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+#top-nav .nav {
+	margin-top: 20px
+}
+
+#top-nav .nav > li > a {
+	color: #fff;
+	text-shadow: none;
+	padding: 10px 0 10px 30px;
+}
+
+#top-nav .nav > li > a:focus,
+#top-nav .nav > li > a:hover {
+  color: #ddd;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* hero unit */
+.hero-unit {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: transparent;
+}
+
+.hero-unit .container .row-fluid {
+	position: relative;
+	min-height: 750px;
+}
+
+.hero-unit .hero-image {
+	background: url(../img/iphone-white-mockup.png);
+	width: 370px;
+	height: 560px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-align: right;
+}
+
+#hero-carousel {
+	position: absolute;
+	left: 30px;
+	top: 134px;
+	margin-bottom: 0;	
+}
+
+.hero-text {
+	width: 65%;
+	z-index: 99;
+	color: #f2f2f2;
+	padding: 7em 0;
+}
+
+.hero-text .heading {
+	font-size: 3.5em;
+	line-height: 1.2;
+}
+
+.hero-text .description {
+	margin-bottom: 45px;	
+	font-size: 1.4em;
+	line-height: 1.6;
+}
+
+/* Features
+-------------------------------------------------- */
+
+.features .feature-item {
+	margin: 65px 0;
+}
+
+.features .feature-item:first-child {
+	margin-top: 15px;
+}
+
+.features .right-text {
+	padding-left: 14px;
+}
+
+.features img {
+	-webkit-box-shadow: 2px 2px 12px #4d4d4d;
+	-moz-box-shadow: 2px 2px 12px #4d4d4d;
+	box-shadow: 2px 2px 12px #4d4d4d;
+}
+
+.features img.no-shadow {
+	-webkit-box-shadow: none;		
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.section.features-more {
+	margin-top: 15px;
+}
+
+.section.features-more .heading {
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.section.features-more .more-item .heading {
+	margin-bottom: 12px;
+	font-size: 2.2em;
+	color: #006DCC;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 20px;
+	font-weight: 700;
+}
+
+.features-more .more-item .heading i {
+	margin-right: 7px;
+}
+
+.section.features-more .more-item .description {
+	font-size: 1em;
+	text-align: left;
+	font-weight: normal;
+}
+
+
+
+/* Testimonials
+-------------------------------------------------- */
+
+.testimonials {
+	color: #f2f2f2;
+	font-size: 2em;
+	margin-top: 35px;
+	margin-bottom: 65px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 65px 0;
+}
+
+.testimonials ul {
+	list-style-type: none;
+	width: 90%;
+	margin: 0 auto;	
+}
+
+.testimonials ul li {
+	line-height: 1.3;
+	font-weight: 300;
+	font-size: 1.4em;
+	font-style: italic;
+}
+
+.testimonials ul li .author {
+	display: block;
+	font-size: 0.4em;
+	font-style: normal;
+	margin-top: 28px;
+}
+
+.testimonials ul li i {
+	margin: 0 !important;
+	color: #323232;
+}
+
+.testimonials .testimonial-content {
+	padding-left: 182px;
+}
+
+/* Footer
+-------------------------------------------------- */
+
+.full-width.footer {
+	background: inherit;
+	margin: 30px 0 15px 0;
+}
+
+.copyright {
+	font-size: 0.9em;
+}
+
+.social ul {
+	list-style-type: none;
+	text-align: right;
+}
+
+.social li {
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+.social li a {
+	color: #8e8e8e;
+
+	-webkit-transition: all 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+	-moz-transition: all 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+	-ms-transition: all 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+	-o-transition: all 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+	transition: all 300ms cubic-bezier(0.420, 0.000, 0.580, 1.000); /* ease-in-out */
+}
+
+.social li a:hover {
+	color: #4d4d4d;
+}
+
+.social [class^="socicon"]:before, 
+.social [class*=" socicon"]:before {	
+	font-size: 55px;
+}
+
+.social li [class^="socicon"], 
+.social li [class*=" socicon"] {
+	width: inherit;
+	margin-left: 14px;
+}
+
+
+
+/* Media Queries
+-------------------------------------------------- */
+
+/* Large desktop */
+@media (min-width: 1200px) {
+	.pricing .row-fluid {
+		width: 65% !important;
+	}	
+}
+
+@media (min-width: 980px) {
+
+}
+
+@media (max-width: 979px) {
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+
+	.container {
+		width: auto;
+		padding: 0 20px;
+	}
+
+	.testimonials {
+		padding: 65px 0;
+	}
+
+	#top-nav .nav-collapse.in {
+		background-color: #1469B9;
+	}
+
+	.hero-text {
+		font-size: 0.8em;
+		padding: 11em 0;
+	}
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+	.header {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
+	#top-nav {
+		position: relative;
+	}
+
+	.hero-unit {
+		padding: 0 20px;
+		text-align: center;
+	}
+
+	.hero-unit .hero-image {
+		display: none;
+	}
+
+	.hero-text {
+		padding: 3em 0;
+	}
+
+	.main-content,
+	.newsletter,
+	.footer {
+		text-align: center;
+	}
+
+	.testimonials ul {
+		text-align: left;
+	}
+
+	.feature-item .right-text {
+		margin-top: 50px;
+	}
+
+	.section.features-more .more-item  {
+		margin-bottom: 50px;
+	}
+
+	.full-width {
+		margin-left: -20px;
+		margin-right: -20px;
+		width: inherit;
+	}
+
+	.call-to-action .image-wrapper {
+		display: none;
+	}
+
+	.newsletter form {
+		float: none;
+		margin-top: 20px;
+	}
+
+	.newsletter form input[type="email"] {
+		width: 40%;
+		font-size: 1.2em;		
+	}
+
+	.social ul {
+		text-align: center;
+		margin: 10px 0 0 0;
+	}
+
+	.social ul li:first-child i {
+		margin-left: 0;
+	}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+	.hero-text {
+		font-size: 0.8em;
+	}
+
+	.testimonials ul li i {
+		display: none;
+	}
+
+	.testimonials .testimonial-content {
+		padding-left: 0;
+		text-align: center;
+	}
+
+	.newsletter form input[type="email"],
+	.newsletter form input[type="submit"] {
+		margin-right: 0;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.newsletter form input[type="email"] {
+		width: 70%;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.alert {
+		width: 80%;
+	}
+}
+
+.move {
+	margin-bottom: 50px;
+}
+
+.center {
+	text-align: center;
+}
+
