@@ -6,7 +6,10 @@ Bars = new Meteor.Collection('bars');
 
 if (Meteor.isClient) {
   Meteor.Router.add({
-    '/': 'home',
+
+    '/': 'ind',
+
+    '/drinkzy-app': 'home',
 
     '/bar/:id': function (id) {
       Session.set('barId', id);
