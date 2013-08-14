@@ -10,7 +10,6 @@
 
 body {
   position: relative; /* For scrollyspy */
-  padding-top: 50px; /* Account for fixed navbar */
 }
 
 /* Custom docs button */
@@ -375,7 +374,7 @@ body {
 .rightHalf{ 
   width: 50%; 
   height: 50%;
-  float: left;
+  float: right;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #eee;
