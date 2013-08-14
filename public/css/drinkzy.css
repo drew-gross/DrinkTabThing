@@ -4,7 +4,7 @@ html {
 
 body {
 	position: relative;
-	background: url(../public/img/diagonal-stripe.png) repeat #f2f2f2;
+	background: url(../img/diagonal-stripe.png) repeat #f2f2f2;
 	font-family: 'AvenirRoman';
 	font-size: 13px;
 	color: #323232;
@@ -255,7 +255,7 @@ html[xmlns] .slides {display: block;}
 
 .header {
 	margin-bottom: 85px;
-	background-image: url(../public/img/hero-unit-bg.png);
+	background-image: url(../img/hero-unit-bg.png);
 	background-position: top center;
 	
 	background-repeat: no-repeat;
@@ -317,7 +317,7 @@ html[xmlns] .slides {display: block;}
 }
 
 .hero-unit .hero-image {
-	background: url(../public/img/iphone-white-mockup.png);
+	background: url(../img/iphone-white-mockup.png);
 	width: 370px;
 	height: 560px;
 	position: absolute;
