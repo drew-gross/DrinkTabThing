@@ -14,6 +14,9 @@
 <template name="home">
 	<h1>Choose your bar</h1>
 	{{#each bars}}
-		<div><input type="button" value="{{name}}" class="view_bar"/></div>
+		<div><input type="button" value="{{name}}" class="view_bar" style="float:left; width:{{width}}"/></div>
+		{{#if rowEnd}}
+			<div style="clear: both;"></div>
+		{{/if}}
 	{{/each}}
 </template>
