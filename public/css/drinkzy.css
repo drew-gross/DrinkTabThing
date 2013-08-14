@@ -648,6 +648,14 @@ html[xmlns] .slides {display: block;}
 	.alert {
 		width: 80%;
 	}
+	.row-fluid {
+		float: none;
+		display: inline;
+		margin-left: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
 }
 
 .move {
@@ -657,4 +665,137 @@ html[xmlns] .slides {display: block;}
 .center {
 	text-align: center;
 }
+
+/* CSS webapp -------------------------*/
+
+/* Top nav and header
+-------------------------------------------------- */
+
+.bs-docs-nav {
+  background-color: #563d7c;
+  text-align: center;
+}
+.bs-docs-nav .navbar-brand {
+  color: #fff;
+  text-align: center;
+}
+.bs-docs-nav .navbar-nav > li > a {
+  color: #cdbfe3;
+}
+.bs-docs-nav .navbar-nav > li > a:hover {
+  color: #fff;
+}
+.bs-docs-nav .navbar-nav > .active > a,
+.bs-docs-nav .navbar-nav > .active > a:hover {
+  color: #fff;
+  background-color: #463265;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.firstHalf { 
+  width: 50%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e81d25;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}
+.secondHalf{ 
+  width: 50%; 
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #78d1f6;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2); 
+
+}
+.thirdHalf{ 
+  width: 50%; 
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #edd441;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2); 
+
+}
+.forthHalf{ 
+  width: 50%; 
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #5ebb46;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2); 
+
+}
+
+
+.statusHalf{ 
+  width: 33.33%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #908664;
+  border: 0px solid #ddd;
+  border-top: 1px solid rgba(86,61,124,.2); 
+  border-bottom: 3px solid rgba(86,61,124,.2); 
+
+}
+.itensHalf{ 
+  width: 100%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  border: 0px solid #ddd;
+  border-top: 1px solid rgba(86,61,124,.2); 
+  border-bottom: 3px solid rgba(86,61,124,.2); 
+
+}
+
+.
+
+.login { 
+  width: 100%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.uibutton.confirm {
+    border-color: #29447E #29447E #1A356E;
+    color: #fff;
+    background-color: #5B74A8;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#637bad), to(#5872a7));
+    background-image: -moz-linear-gradient(#637bad, #5872a7);
+    background-image: -o-linear-gradient(#637bad, #5872a7);
+    background-image: linear-gradient(#637bad, #5872a7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#637bad', EndColorStr='#5872a7'); /* for IE 6 - 9 */
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+}
+
+.uibutton.confirm:active {
+    border-color: #29447E;
+    background: #4F6AA3;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+
+
+
+
+
 
