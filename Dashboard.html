@@ -1,4 +1,5 @@
 <template name="dashboard">
+	<div class="container center">
 	<h1>Open Tabs</h1>
 	{{#each open_tabs}}
 		{{> open_tab}}
@@ -7,17 +8,22 @@
 	{{#each finished_drinks}}
 		{{> finished_drink}}
 	{{/each}}
+	</div>
 </template>
 
 <template name="finished_drink">
+	<div class="container center">
 	<div>{{name}}</div>
+	</div>
 </template>
 
 <template name="open_tab">
+	<div class="container center">
 	<div>ID: {{_id}} (${{tab_total}})<input type="button" value="close tab" class="close_tab"/></div>
 	<ul>
 		{{#each active_drinks_on_tab}}
 			<li>{{name}} <input type="button" value="drink is ready" class="drink_ready"/></li>
 		{{/each}}
 	</ul>
+</div>
 </template>
