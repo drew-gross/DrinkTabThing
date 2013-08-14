@@ -1,4 +1,5 @@
 <template name="tab">
+  <div class="container center">
   <h1>Menu</h1>
   {{#each drink_categories}}
     {{> drink_category}}
@@ -26,24 +27,30 @@
   {{#each cancelled_drinks}}
     {{> cancelled_drink}}
   {{/each}}
+  </div>
 </template>
 
 <template name="drink_category">
+  <div class="container center">
   <h4>{{name}}</h4>
   {{#each drinks_menu}}
     {{> drink_from_menu}}
   {{/each}}
+</div>
 </template>
 
 <template name="drink_from_menu">
+  <div class="container center">
   <div>{{name}}: ${{price}}
   {{#if tab_open}}
     <input type="button" value="buy one" class="buy_drink"/>
   {{/if}}
   </div>
+</div>
 </template>
 
 <template name="drink_from_tab">
+  <div class="container center">
   <div>
     {{name}}: ${{price}}
     {{#if drink_ready}}
@@ -52,8 +59,11 @@
       <input type="button" value="cancel" class="cancel_drink"/>
     {{/if}}
   </div>
+</div>
 </template>
 
 <template name="cancelled_drink">
+  <div class="container center">
   <div>{{name}}</div>
+</div>
 </template>
