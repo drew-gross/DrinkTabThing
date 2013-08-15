@@ -14,10 +14,10 @@
 </template>
 
 <template name="open_tab">
-	<div>ID: {{_id}} (${{tab_total}})<input type="button" value="close tab" class="close_tab"/></div>
+	<div>ID: {{_id}} (${{tab_total}})<input type="button" value="close tab" class="close_tab btn btn-custom" style="margin:10px"/></div>
 	<ul>
 		{{#each active_drinks_on_tab}}
-			<li>{{name}} <input type="button" value="drink is ready" class="drink_ready"/></li>
+			<li>{{name}} <input type="button" value="drink is ready" class="drink_ready btn btn-custom" style="margin:10px"/></li>
 		{{/each}}
 	</ul>
 </template>

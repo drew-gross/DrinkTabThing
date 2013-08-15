@@ -1,5 +1,5 @@
 <template name="tab">
-  <h1>Menu</h1>
+  <h1 style="margin:0px; padding:10px">Menu</h1>
   {{#each drink_categories}}
     {{> drink_category}}
   {{/each}}
@@ -22,7 +22,7 @@
   {{#each ordered_drinks}}
   	{{> drink_from_tab}}
   {{/each}}
-  <h1>Cancelled drinks</h1>
+  <h1 style="margin:0px; padding:10px">Cancelled drinks</h1>
   {{#each cancelled_drinks}}
     {{> cancelled_drink}}
   {{/each}}
@@ -38,7 +38,7 @@
 <template name="drink_from_menu">
   <div>{{name}}: ${{price}}
   {{#if tab_open}}
-    <input type="button" value="buy one" class="buy_drink"/>
+    <input type="button" value="buy one" class="buy_drink btn btn-mini btn-custom" style="margin:2px"/>
   {{/if}}
   </div>
 </template>
@@ -49,7 +49,7 @@
     {{#if drink_ready}}
       Ready!
     {{else}}
-      <input type="button" value="cancel" class="cancel_drink"/>
+      <input type="button" value="cancel" class="cancel_drink btn btn-mini btn-custom" style="margin:2px"/>
     {{/if}}
   </div>
 </template>
