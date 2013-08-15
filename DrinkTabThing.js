@@ -63,15 +63,16 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     if (Bars.find().count() === 0){
-      var barsList = ["Yield Wine Bar", "Stray Bar", "Ruby Skye", "QBar"];
+      var barsList = ["Yield Wine Bar", "Stray Bar", "Ruby Skye", "QBar", "Absinthe Brasserie & Bar", "Bar 821", "Smuggler's Cove", "Mission Bar", "Toronado", "The Tempest", "Dubliner Noe Valley", "Rickhouse", "Vesuvio Cafe", "Hemlock Tavern", "Burritt Room", "The Irish Bank", "Red Devil Lounge", "Bourbon & Branch", "Rye", "Milk Bar"];
+      var defaultpic = "img2/18523074-beer-mug-icon_transparent.png";
+      var picsList = [];
       var rowLength = 2;
       var isRowEnd = false;
-      var colmWidth = 360/rowLength + "px";
       for (var i in barsList){
         isRowEnd = ( (Number(i)+1) %rowLength==0)? true: false;
         var co = Number(i)+1;
         var wr = i+1;
-        Bars.insert({ name: barsList[i], rowEnd: isRowEnd, width: colmWidth });
+        Bars.insert({ name: barsList[i], rowEnd: isRowEnd, thumbnail: defaultpic });
       }
     }
     
