@@ -255,7 +255,7 @@ html[xmlns] .slides {display: block;}
 
 .header {
 	margin-bottom: 85px;
-	background-image: url(../img/hero-unit-bg.png);
+	background-image: url(../img/hero-unit-bg.jpg);
 	background-position: top center;
 	
 	background-repeat: no-repeat;
@@ -673,11 +673,9 @@ html[xmlns] .slides {display: block;}
 
 .bs-docs-nav {
   background-color: #563d7c;
-  text-align: center;
 }
 .bs-docs-nav .navbar-brand {
   color: #fff;
-  text-align: center;
 }
 .bs-docs-nav .navbar-nav > li > a {
   color: #cdbfe3;

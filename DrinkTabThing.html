@@ -33,6 +33,12 @@
 </body>
 
 <template name="bar">
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav center" >
+        <div class="container center">
+            <a href="/" class="brand">Drinkzy</a>
+        </div>
+    </header>
     <div class="container center">
 	<div>Bar name: {{bar_name}}</div>
 	<input type="button" value="open a tab" class="open_tab"/>
@@ -40,6 +46,11 @@
 </template>
 
 <template name="home">
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav center" >
+        <div class="container center">
+            <a href="/" class="brand">Drinkzy</a>
+        </div>
+    </header>
     <div class="container center">
 	<h1>Choose your bar</h1>
 	{{#each bars}}
